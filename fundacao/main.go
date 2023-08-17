@@ -1,26 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	salarios := map[string]int{"PH": 1000, "Pimentel": 2000, "Henrique": 3000}
-	fmt.Println(salarios["PH"])
-
-	delete(salarios, "PH")
-	fmt.Println(salarios)
-
-	salarios["PH"] = 5000
-	fmt.Println(salarios["PH"])
-
-	// sal := make(map[string]int)
-	// sal1 := map[string]int{}
-	// sal1["Luiz"] = 1000
-
-	for nome, salario := range salarios {
-		fmt.Printf("O salário de %s é %d\n", nome, salario)
+	valor, err := sum(50, 10)
+	if err != nil {
+		fmt.Println(err)
 	}
+	fmt.Println(valor)
+}
 
-	for _, salario := range salarios {
-		fmt.Printf("O salário é %d\n", salario)
+func sum(a, b int) (int, error) {
+	if a+b >= 50 {
+		return 0, errors.New("A soma é maior que 50")
 	}
+	return a + b, nil
 }
