@@ -1,21 +1,26 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	s := []int{10, 20, 30, 50, 60, 70, 80, 90, 100}
+	salarios := map[string]int{"PH": 1000, "Pimentel": 2000, "Henrique": 3000}
+	fmt.Println(salarios["PH"])
 
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+	delete(salarios, "PH")
+	fmt.Println(salarios)
 
-	fmt.Printf("len=%d cap=%d %v\n", len(s[:0]), cap(s[:0]), s[:0])
+	salarios["PH"] = 5000
+	fmt.Println(salarios["PH"])
 
-	fmt.Printf("len=%d cap=%d %v\n", len(s[:4]), cap(s[:4]), s[:4])
+	// sal := make(map[string]int)
+	// sal1 := map[string]int{}
+	// sal1["Luiz"] = 1000
 
-	fmt.Printf("len=%d cap=%d %v\n", len(s[2:]), cap(s[2:]), s[2:])
+	for nome, salario := range salarios {
+		fmt.Printf("O salário de %s é %d\n", nome, salario)
+	}
 
-	s = append(s, 110)
-
-	fmt.Printf("len=%d cap=%d %v\n", len(s[:2]), cap(s[:2]), s[:2])
+	for _, salario := range salarios {
+		fmt.Printf("O salário é %d\n", salario)
+	}
 }
