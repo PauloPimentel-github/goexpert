@@ -1,21 +1,17 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
 func main() {
-	valor, err := sum(50, 10)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(valor)
+	fmt.Println(sum(1, 3, 45, 6, 34, 654, 654, 7645, 534, 543, 543, 543))
 }
 
-func sum(a, b int) (int, error) {
-	if a+b >= 50 {
-		return 0, errors.New("A soma é maior que 50")
+func sum(numeros ...int) int {
+	total := 0
+	for _, nummero := range numeros {
+		total += nummero
 	}
-	return a + b, nil
+	return total
 }
