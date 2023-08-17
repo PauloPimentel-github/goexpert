@@ -1,21 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func main() {
-	total := func() int {
-		return sum(1, 3, 45, 6, 34, 654, 654, 7645, 534, 543, 543, 543) * 2
-	}()
-
-	fmt.Println(total)
+type Cliente struct {
+	Nome  string
+	Idade int
+	Ativo bool
 }
 
-func sum(numeros ...int) int {
-	total := 0
-	for _, nummero := range numeros {
-		total += nummero
+func main() {
+	ph := Cliente{
+		Nome:  "PH",
+		Idade: 30,
+		Ativo: true,
 	}
-	return total
+
+	fmt.Printf("Nome: %s, Idade: %d, Ativo: %t\n", ph.Nome, ph.Idade, ph.Ativo)
+
+	ph.Ativo = false
+	fmt.Println(ph.Ativo)
 }
