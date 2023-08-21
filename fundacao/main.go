@@ -1,51 +1,18 @@
 package main
 
-import "fmt"
-
-type Pessoa interface {
-	Desativar()
-}
-
-type Endereco struct {
-	Logradouro string
-	Numero     int
-	Cidade     string
-	Estado     string
-}
-
-type Empresa struct {
-	Nome string
-}
-
-func (empresa Empresa) Desativar() {
-
-}
-
-type Cliente struct {
-	Nome  string
-	Idade int
-	Ativo bool
-	Endereco
-}
-
-func (c Cliente) Desativar() {
-	c.Ativo = false
-	fmt.Printf("O cliente %s foi desativado", c.Nome)
-}
-
-func Desativacao(pessoa Pessoa) {
-	pessoa.Desativar()
-}
-
 func main() {
-	ph := Cliente{
-		Nome:  "PH",
-		Idade: 30,
-		Ativo: true,
-	}
 
-	minhaEmpresa := Empresa{}
+	// Memória -> Endereço -> Valor
+	// Variável -> ponteiro que tem um endereço na memória -> valor
+	a := 10
+	var ponteiro *int = &a
+	*ponteiro = 20
+	b := &a
+	println(ponteiro)
+	println(a)
+	println(b)
+	println(*b)
 
-	Desativacao(ph)
-	Desativacao(minhaEmpresa)
+	*b = 30
+	println(a)
 }
