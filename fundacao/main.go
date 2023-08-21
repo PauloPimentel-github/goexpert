@@ -2,11 +2,23 @@ package main
 
 import "fmt"
 
+type Pessoa interface {
+	Desativar()
+}
+
 type Endereco struct {
 	Logradouro string
 	Numero     int
 	Cidade     string
 	Estado     string
+}
+
+type Empresa struct {
+	Nome string
+}
+
+func (empresa Empresa) Desativar() {
+
 }
 
 type Cliente struct {
@@ -21,11 +33,19 @@ func (c Cliente) Desativar() {
 	fmt.Printf("O cliente %s foi desativado", c.Nome)
 }
 
+func Desativacao(pessoa Pessoa) {
+	pessoa.Desativar()
+}
+
 func main() {
 	ph := Cliente{
 		Nome:  "PH",
 		Idade: 30,
 		Ativo: true,
 	}
-	ph.Desativar()
+
+	minhaEmpresa := Empresa{}
+
+	Desativacao(ph)
+	Desativacao(minhaEmpresa)
 }
