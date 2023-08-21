@@ -1,16 +1,25 @@
 package main
 
-func soma(a, b *int) int {
-	*a = 50
-	*b = 50
-	return *a + *b
+import "fmt"
+
+type Conta struct {
+	saldo int
+}
+
+func NewConta() *Conta {
+	return &Conta{saldo: 0}
+}
+
+func (conta *Conta) simular(valor int) int {
+	conta.saldo += valor
+	println(conta.saldo)
+	return conta.saldo
 }
 
 func main() {
-	minhaVar1 := 10
-	minhaVar2 := 20
-
-	println(soma(&minhaVar1, &minhaVar2))
-	println(minhaVar1)
-	println(minhaVar2)
+	conta := Conta{
+		saldo: 100,
+	}
+	conta.simular(200)
+	fmt.Printf("O valor da struct com saldo %v", conta.saldo)
 }
