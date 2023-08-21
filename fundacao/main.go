@@ -1,18 +1,16 @@
 package main
 
+func soma(a, b *int) int {
+	*a = 50
+	*b = 50
+	return *a + *b
+}
+
 func main() {
+	minhaVar1 := 10
+	minhaVar2 := 20
 
-	// Memória -> Endereço -> Valor
-	// Variável -> ponteiro que tem um endereço na memória -> valor
-	a := 10
-	var ponteiro *int = &a
-	*ponteiro = 20
-	b := &a
-	println(ponteiro)
-	println(a)
-	println(b)
-	println(*b)
-
-	*b = 30
-	println(a)
+	println(soma(&minhaVar1, &minhaVar2))
+	println(minhaVar1)
+	println(minhaVar2)
 }
