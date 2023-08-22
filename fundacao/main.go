@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"matematica"
+
+	"curso-goexpert/fundacao/matematica"
 )
 
 func main() {
 	soma := matematica.Soma(10, 20)
-	fmt.Println("Resultado: %v", soma)
+	fmt.Println("Resultado: ", soma)
 }
