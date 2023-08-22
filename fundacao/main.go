@@ -1,18 +1,23 @@
 package main
 
-import (
-	"curso-goexpert/fundacao/matematica"
-	"fmt"
-
-	"github.com/google/uuid"
-)
-
 func main() {
-	soma := matematica.Soma(10, 20)
-	carro := matematica.Carro{Marca: "Honda"}
-	fmt.Println("Resultado: ", soma)
-	fmt.Println(matematica.A)
-	fmt.Println(carro)
-	fmt.Println(carro.Andar())
-	fmt.Println(uuid.New())
+
+	for i := 0; i < 10; i++ {
+		println(i)
+	}
+
+	numeros := []string{"um", "dois", "três"}
+	for k, v := range numeros {
+		println(k, v)
+	}
+
+	i := 0
+	for i < 10 {
+		println(i)
+		i++
+	}
+
+	for {
+		println("Hello, World!")
+	}
 }
