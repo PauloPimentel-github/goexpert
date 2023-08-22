@@ -1,9 +1,10 @@
 package main
 
 import (
+	"curso-goexpert/fundacao/matematica"
 	"fmt"
 
-	"curso-goexpert/fundacao/matematica"
+	"github.com/google/uuid"
 )
 
 func main() {
@@ -13,4 +14,5 @@ func main() {
 	fmt.Println(matematica.A)
 	fmt.Println(carro)
 	fmt.Println(carro.Andar())
+	fmt.Println(uuid.New())
 }
