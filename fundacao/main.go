@@ -1,33 +1,11 @@
 package main
 
-type MyNumber int
-
-type Number interface {
-	~int | ~float64
-}
-
-func Soma[T Number](m map[string]T) T {
-	var soma T
-	for _, v := range m {
-		soma += v
-	}
-	return soma
-}
-
-func Compara[T comparable](a T, b T) bool {
-	if a == b {
-		return true
-	}
-	return false
-}
+import (
+	"fmt"
+	"matematica"
+)
 
 func main() {
-	m := map[string]int{"PH": 1000, "Luiz": 2000, "Luciano": 3000}
-	m2 := map[string]float64{"PH": 100.20, "Luiz": 2000.3, "Luciano": 300.0}
-
-	m3 := map[string]MyNumber{"PH": 1000, "Luiz": 2000, "Luciano": 3000}
-	println(Soma(m))
-	println(Soma(m2))
-	println(Soma(m3))
-	println(Compara(10, 10))
+	soma := matematica.Soma(10, 20)
+	fmt.Println("Resultado: %v", soma)
 }
