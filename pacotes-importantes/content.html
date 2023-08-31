@@ -12,7 +12,7 @@
         {{ range . }}
             {{ if eq .CargaHoraria 40 }}
                 <tr>
-                    <td>{{ .Nome }}</td>
+                    <td>{{ .Nome | ToUpper }}</td>
                     <td>{{ .CargaHoraria }}</td>
                 </tr>
             {{ end }}
